@@ -118,7 +118,7 @@ export default function Home() {
       </div>
       <div className="mt-6 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4">
         {selectedMenu == 'food' && listMenu.filter(menu => menu.isFood).filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase())).map((menu, index) => (
-          <div className="border-2 rounded-lg overflow-hidden hover:scale-102 hover:shadow-md transition-all">
+          <div key={index} className="border-2 rounded-lg overflow-hidden hover:scale-102 hover:shadow-md transition-all">
             <Image src={menu.image} alt={menu.name} width={200} height={200} className="w-full h-40 object-cover" />
             <div className="p-2">
               <div className="flex justify-between items-center">
@@ -131,7 +131,7 @@ export default function Home() {
           </div>
         ))}
         {selectedMenu == 'all' && listMenu.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase())).map((menu, index) => (
-          <div className="border-2 rounded-lg overflow-hidden hover:scale-102 hover:shadow-md transition-all">
+          <div key={index} className="border-2 rounded-lg overflow-hidden hover:scale-102 hover:shadow-md transition-all">
             <Image src={menu.image} alt={menu.name} width={200} height={200} className="w-full h-40 object-cover" />
             <div className="p-2">
               <div className="flex justify-between items-center">
@@ -144,7 +144,7 @@ export default function Home() {
           </div>
         ))}
         {selectedMenu == 'drink' && listMenu.filter(menu => !menu.isFood).filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase())).map((menu, index) => (
-          <div className="border-2 rounded-lg overflow-hidden hover:scale-102 hover:shadow-md transition-all">
+          <div key={index} className="border-2 rounded-lg overflow-hidden hover:scale-102 hover:shadow-md transition-all">
             <Image src={menu.image} alt={menu.name} width={200} height={200} className="w-full h-40 object-cover" />
             <div className="p-2">
               <div className="flex justify-between items-center">
@@ -168,7 +168,7 @@ export default function Home() {
           </DrawerHeader>
           <div className="px-4 gap-y-2 flex flex-col">
             {cart.map((item, index) => (
-            <div className="flex items-center justify-between gap-x-5 bg-neutral-100 rounded-xl w-full p-4">
+            <div key={index} className="flex items-center justify-between gap-x-5 bg-neutral-100 rounded-xl w-full p-4">
               <div className="flex items-center gap-x-5">
                 <Image src={item.image} alt="Nasgor" width={100} height={200} className="h-10 object-cover rounded-xl" />
                 <span className="font-semibold text-xl">{item.name}</span>
